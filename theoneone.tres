@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bj65ra27g4qdv"]
+
+[ext_resource type="FontFile" uid="uid://caaro0gc7v56t" path="res://assets/RobotoMono-Regular.ttf" id="1_vyuar"]
+
+[resource]
+font = ExtResource("1_vyuar")
+font_size = 25

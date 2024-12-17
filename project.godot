@@ -11,5 +11,25 @@ config_version=5
 [application]
 
 config/name="Match_These_Pokemon"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ImageManager="*res://scripts/image_manager.gd"
+GameManager="*res://scripts/game_manager.gd"
+SignalManager="*res://scripts/signal_manager.gd"
+SoundManager="*res://scripts/sound_manager.gd"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=324
+window/size/window_width_override=1728
+window/size/window_height_override=972
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

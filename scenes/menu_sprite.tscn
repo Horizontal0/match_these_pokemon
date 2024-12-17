@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2t6m8mkgcis"]
+
+[ext_resource type="Texture2D" uid="uid://cnvsnqst66si" path="res://assets/sprites/185.png" id="1_6jsdv"]
+[ext_resource type="Script" path="res://scripts/menu_sprite.gd" id="2_s8s5g"]
+
+[node name="menu_sprite" type="TextureRect"]
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("1_6jsdv")
+script = ExtResource("2_s8s5g")

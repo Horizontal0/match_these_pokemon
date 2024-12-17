@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnjn4on5ngy61"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_0rs6s"]
+[ext_resource type="Texture2D" uid="uid://dgtngjlme50xp" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_depth_gradient.svg" id="1_a35l3"]
+[ext_resource type="Texture2D" uid="uid://cgs35oa3tuwms" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_gradient.svg" id="2_lf83j"]
+[ext_resource type="FontFile" path="res://assets/RobotoMono-Regular.ttf" id="3_25bjg"]
+[ext_resource type="LabelSettings" uid="uid://bj65ra27g4qdv" path="res://theoneone.tres" id="3_hsihe"]
+[ext_resource type="PackedScene" uid="uid://cwe1tscykxjea" path="res://scenes/mister_incredible.tscn" id="7_w0j04"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2iqmu"]
+font = ExtResource("3_25bjg")
+font_size = 30
+font_color = Color(0.462745, 0.0117647, 0.129412, 1)
+
+[node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rs6s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_a35l3")
+texture_pressed = ExtResource("2_lf83j")
+
+[node name="quit" type="Label" parent="HBoxContainer/VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+label_settings = SubResource("LabelSettings_2iqmu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="time" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "TIME : 0"
+label_settings = ExtResource("3_hsihe")
+vertical_alignment = 1
+
+[node name="move" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "MOVE : 0"
+label_settings = ExtResource("3_hsihe")
+vertical_alignment = 1
+
+[node name="pair" type="Label" parent="HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "PAIR : 0"
+label_settings = ExtResource("3_hsihe")
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+columns = 4
+
+[node name="Mister_Incredible" parent="." instance=ExtResource("7_w0j04")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_bottom = 324.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

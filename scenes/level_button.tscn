@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfp17kgpocqw0"]
+
+[ext_resource type="Texture2D" uid="uid://cm0qo4q64foua" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_square_depth_gradient.png" id="1_m70a0"]
+[ext_resource type="Texture2D" uid="uid://bif2fcd31vap7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_square_gradient.png" id="2_mf73v"]
+[ext_resource type="Script" path="res://scripts/level_button.gd" id="3_14tcc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fq8j"]
+
+[node name="level_button" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_m70a0")
+texture_pressed = ExtResource("2_mf73v")
+script = ExtResource("3_14tcc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2 x 2"
+label_settings = SubResource("LabelSettings_6fq8j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

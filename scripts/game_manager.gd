@@ -1,5 +1,6 @@
 extends Node
 
+var menu_tscn = preload("res://scenes/menu.tscn")
 var level_selected : int
 
 const levelK = {
@@ -31,3 +32,6 @@ func get_level_selection():
 
 func save_level_selection(level):
 	level_selected = level
+
+func load_main_menu():
+	get_tree().change_scene_to_packed(menu_tscn)

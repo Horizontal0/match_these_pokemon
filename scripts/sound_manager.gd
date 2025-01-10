@@ -11,4 +11,4 @@ func play_audio(player : AudioStreamPlayer2D, sound : String):
 	if !sounds.has(sound):
 		return
 	player.stream = sounds[sound]
-	player.play
+	player.play()

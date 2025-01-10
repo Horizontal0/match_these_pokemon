@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0rs6s"]
 [ext_resource type="Texture2D" uid="uid://dgtngjlme50xp" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_depth_gradient.svg" id="1_a35l3"]
 [ext_resource type="Texture2D" uid="uid://cgs35oa3tuwms" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_gradient.svg" id="2_lf83j"]
-[ext_resource type="FontFile" path="res://assets/RobotoMono-Regular.ttf" id="3_25bjg"]
+[ext_resource type="FontFile" uid="uid://caaro0gc7v56t" path="res://assets/font/RobotoMono-Regular.ttf" id="3_25bjg"]
 [ext_resource type="LabelSettings" uid="uid://bj65ra27g4qdv" path="res://theoneone.tres" id="3_hsihe"]
 [ext_resource type="PackedScene" uid="uid://cwe1tscykxjea" path="res://scenes/mister_incredible.tscn" id="7_w0j04"]
 

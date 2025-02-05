@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://bau1itdxcpyx6"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_oignb"]
+[ext_resource type="Texture2D" uid="uid://dgtngjlme50xp" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_depth_gradient.svg" id="2_252n7"]
+[ext_resource type="Texture2D" uid="uid://cgs35oa3tuwms" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_gradient.svg" id="3_tjrmu"]
+[ext_resource type="FontFile" uid="uid://caaro0gc7v56t" path="res://assets/font/RobotoMono-Regular.ttf" id="4_bingr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5j6cy"]
+font = ExtResource("4_bingr")
+font_size = 30
+font_color = Color(0.603823, 0.07993, 0.0987274, 1)
+outline_size = 2
+outline_color = Color(0.603922, 0.0784314, 0.0980392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_52lm4"]
+font = ExtResource("4_bingr")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukohp"]
+font = ExtResource("4_bingr")
+font_size = 50
+font_color = Color(1, 0.933333, 0, 1)
+outline_size = 5
+outline_color = Color(1, 0.933333, 0, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="game_over" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oignb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = 12.5
+offset_top = 12.5
+offset_right = 204.5
+offset_bottom = 76.5
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_252n7")
+texture_pressed = ExtResource("3_tjrmu")
+
+[node name="Label" type="Label" parent="back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BACK"
+label_settings = SubResource("LabelSettings_5j6cy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.5
+offset_top = -60.0
+offset_right = 142.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "press 'space' to exit"
+label_settings = SubResource("LabelSettings_52lm4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game_complete" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -17.0
+offset_right = 97.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME COMPLETE"
+label_settings = SubResource("LabelSettings_ukohp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

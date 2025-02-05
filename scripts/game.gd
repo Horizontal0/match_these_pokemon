@@ -28,6 +28,10 @@ func _input(event):
 func add_tiles(tiles:Dictionary):
 	var tile_instance = tile.instantiate()
 	#print(tiles["image_texture"])
+	print(level_data["cols_nums"])
+	if level_data["cols_nums"] > 5:
+		tile_instance.scale.x *= 5/level_data["cols_nums"]
+		tile_instance.scale.y *= 5/level_data["cols_nums"]
 	grid_container.add_child(tile_instance)
 	tile_instance.setup(tiles)
 

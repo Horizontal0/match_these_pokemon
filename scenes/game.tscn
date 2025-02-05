@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnjn4on5ngy61"]
+[gd_scene load_steps=10 format=3 uid="uid://cnjn4on5ngy61"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_0rs6s"]
 [ext_resource type="Texture2D" uid="uid://dgtngjlme50xp" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_depth_gradient.svg" id="1_a35l3"]
 [ext_resource type="Texture2D" uid="uid://cgs35oa3tuwms" path="res://assets/kenney_ui-pack/Vector/Red/button_rectangle_gradient.svg" id="2_lf83j"]
 [ext_resource type="FontFile" uid="uid://caaro0gc7v56t" path="res://assets/font/RobotoMono-Regular.ttf" id="3_25bjg"]
 [ext_resource type="LabelSettings" uid="uid://bj65ra27g4qdv" path="res://theoneone.tres" id="3_hsihe"]
+[ext_resource type="PackedScene" uid="uid://cyqktqe2ljc2j" path="res://scenes/tile.tscn" id="6_455fb"]
+[ext_resource type="PackedScene" uid="uid://bau1itdxcpyx6" path="res://scenes/game_over.tscn" id="7_282xw"]
 [ext_resource type="PackedScene" uid="uid://cwe1tscykxjea" path="res://scenes/mister_incredible.tscn" id="7_w0j04"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2iqmu"]
@@ -20,6 +22,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rs6s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 582.0
+offset_bottom = 325.0
+color = Color(0.453383, 0.677307, 0.893041, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -84,7 +92,34 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-columns = 4
+columns = 6
+
+[node name="TextureRect" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="HBoxContainer/GridContainer" instance=ExtResource("6_455fb")]
+layout_mode = 2
 
 [node name="Mister_Incredible" parent="." instance=ExtResource("7_w0j04")]
 layout_mode = 2
@@ -94,5 +129,8 @@ anchor_bottom = 0.0
 offset_bottom = 324.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="game_over" parent="." instance=ExtResource("7_282xw")]
+layout_mode = 1
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

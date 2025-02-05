@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4j8ks0bg1imo" path="res://assets/kenney_ui-pack/Vector/Grey/button_square_gradient.svg" id="1_5le0i"]
 [ext_resource type="Script" path="res://scripts/tile.gd" id="2_oa8mc"]
-[ext_resource type="Texture2D" uid="uid://n0ljiq3njo1y" path="res://assets/sprites/272.png" id="2_qowuo"]
+[ext_resource type="Texture2D" uid="uid://dp2d5l7ycsyoc" path="res://assets/sprites/2.png" id="2_qowuo"]
 [ext_resource type="Texture2D" uid="uid://dmo18c7yyp1dq" path="res://assets/kenney_ui-pack/Vector/Green/button_square_gradient.svg" id="3_0hars"]
 
 [node name="TextureRect" type="TextureButton"]

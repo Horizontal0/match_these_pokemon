@@ -5,13 +5,15 @@ extends Control
 @onready var game_timer = $game_timer
 
 
-var pairs_done : int
+var pairs_done : float
 var time : int
 var moves : int
+var pairs : int
 var tiles_clicked = []
 
 func _ready():
 	SignalManager.on_tile_clicked.connect(tile_clickity)
+	pairs = GameManager.get_level_selection().pair_amounts
 
 func tile_clickity(tile):
 	tile.swap_face(true)
@@ -30,7 +32,7 @@ func _on_timer_timeout():
 	for tiles in tiles_clicked:
 		if tiles_clicked[0]["image_name"] == tiles_clicked[1]["image_name"]:
 			SoundManager.play_audio(audio, "SOUND_MATCH")
-			pairs_done += 1
+			pairs_done += 0.5
 			tiles.set_disabled(true)
 		else:
 			tiles.swap_face(false)
@@ -50,3 +52,9 @@ func get_values():
 		"moves" : str(moves),
 		"time" :	"%02d:%02d" %[minute,second]
 		}
+
+
+func _on_audio_stream_player_2d_finished():
+	if pairs == pairs_done:
+		SoundManager.play_audio(audio, "SOUND_WIN")
+		SignalManager.on_game_over.emit()
